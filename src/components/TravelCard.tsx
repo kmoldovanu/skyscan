@@ -1,5 +1,4 @@
 import type { Trip } from "../types/trip";
-import { motion } from "framer-motion";
 
 interface Props {
   trip: Trip;
@@ -7,13 +6,13 @@ interface Props {
 
 export default function TravelCard({ trip }: Props) {
   return (
-    <motion.div
-      className="travel-card"
-      whileHover={{ scale: 1.05 }}
-      transition={{ duration: 0.3 }}
-    >
-      <h3>{trip.name}</h3>
-      <p>Prezzo: €{trip.price}</p>
-    </motion.div>
+    <div className="group relative bg-slate-800/50 backdrop-blur-sm rounded-2xl">
+      <img src={trip.img} alt="" className="w-full h-full" />
+      <div className="px-6 py-4">
+        <div className="font-bold text-xl mb-2">{ trip.name }</div>
+        <p className="text-gray-500 text-base">{trip.desc}</p>
+        {/* TODO: Continuare da qui! */}
+      </div>
+    </div>
   );
 }
